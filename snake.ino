@@ -40,14 +40,16 @@ SNAKE.pde
 #include <MeggyJrSimple.h>    // Required code, line 1 of 2.
 
 // Global variables go here...
-struct Point
-{
-  int x;
-  int y;
-};
+int x = 4;
+
+int y = 3;
+
 int xapp = random(8);
+
 int yapp = random(8);
+
 boolean gotApple = false; 
+
 int direction = 0
 
 
@@ -59,6 +61,7 @@ void setup()                    // run once, when the sketch starts
 void loop()                     // run over and over again
 { 
   DrawPx(xapp,yapp,Red);
+  DrawPx(x,y,Green);
   DisplaySlate();
   delay(75);
   ClearSlate();
@@ -84,7 +87,7 @@ void loop()                     // run over and over again
    
    // up and down
    CheckButtonsDown();
-  if(Button_Up)
+   if(Button_Up)
     direction = 0
    
   
@@ -93,3 +96,30 @@ void loop()                     // run over and over again
    if (Button_Down)
      direction = 180
    // end
+   
+   
+  if (direction == 0) 
+    y = y + 1;
+       
+  if (direction == 90) 
+    x = x + 1;
+       
+  if (direction == 180) 
+    y = y-1;
+       
+  if (direction == 270) 
+    x =x-1;
+ 
+ // wrap around
+  if (x > 7) 
+    x = 0;
+    
+  if (x < 0)
+    x = 7;
+    
+  if (y > 7)
+    y = 0;
+    
+  if (y < 0)
+    y  = 7;
+}
