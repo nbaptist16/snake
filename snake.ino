@@ -48,6 +48,7 @@ struct Point
 int xapp = random(8);
 int yapp = random(8);
 boolean gotApple = false; 
+int direction = 0
 
 
 void setup()                    // run once, when the sketch starts
@@ -71,60 +72,24 @@ void loop()                     // run over and over again
   // left and right
   CheckButtonsDown();
   if(Button_Right)
-   {
-     if (x < 7)
-     {
-       x = x + 1;  // Also x++;
-     }
-     else
-     {
-       x = 0;
-     }
-   }
+     direction = 90
+
    
-  
-   
+ 
    CheckButtonsDown();
    if (Button_Left)
-   {
-     if (x > 0)
-     {
-       x = x -1;
-     }
-     else
-     {
-       x = 7;
-     }
-   }
+     direction = 270
    // end
    
    
    // up and down
    CheckButtonsDown();
   if(Button_Up)
-   {
-     if (y < 7)
-     {
-       y = y + 1;  // Also x++;
-     }
-     else
-     {
-       y = 0;
-     }
-   }
+    direction = 0
    
   
    
    CheckButtonsDown();
    if (Button_Down)
-   {
-     if (y > 0)
-     {
-       y = y -1;
-     }
-     else
-     {
-       y = 7;
-     }
-   }
+     direction = 180
    // end
